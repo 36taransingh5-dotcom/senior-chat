@@ -1,0 +1,552 @@
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>senior.chat — advice from students who actually live there</title>
+
+<style>
+  @font-face{
+    font-family:"Manrope";
+    src:url(data:font/woff2;base64,{{MANROPE}}) format("woff2");
+    font-weight:200 800; font-style:normal; font-display:swap;
+  }
+  @font-face{
+    font-family:"JBMono";
+    src:url(data:font/woff2;base64,{{JBM}}) format("woff2");
+    font-weight:400 500; font-style:normal; font-display:swap;
+  }
+
+  /* ---------- tokens : light ---------- */
+  :root{
+    color-scheme:light;
+    --ground:#F5F4F3;
+    --surface:#FFFFFF;
+    --surface-2:rgba(14,14,17,.035);
+    --ink:#0E0E11;
+    --ink-mute:#8B8B92;
+    --hairline:rgba(14,14,17,.11);
+    --hairline-soft:rgba(14,14,17,.06);
+    --rose:#FF2E72;
+    --rose-ink:#FFFFFF;
+    --focus:#FF2E72;
+    --tile-shadow:0 1px 2px rgba(14,14,17,.05), 0 12px 32px -18px rgba(14,14,17,.28);
+    --bloom-blend:normal;
+    --bloom-alpha:.85;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      color-scheme:dark;
+      --ground:#08080A;
+      --surface:#101014;
+      --surface-2:rgba(255,255,255,.045);
+      --ink:#F3F2F0;
+      --ink-mute:#7C7C85;
+      --hairline:rgba(243,242,240,.13);
+      --hairline-soft:rgba(243,242,240,.07);
+      --rose:#FF4D86;
+      --rose-ink:#12040A;
+      --focus:#FF7AA6;
+      --tile-shadow:0 1px 2px rgba(0,0,0,.5), 0 18px 40px -22px rgba(0,0,0,.9);
+      --bloom-blend:screen;
+      --bloom-alpha:.9;
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --ground:#08080A;
+    --surface:#101014;
+    --surface-2:rgba(255,255,255,.045);
+    --ink:#F3F2F0;
+    --ink-mute:#7C7C85;
+    --hairline:rgba(243,242,240,.13);
+    --hairline-soft:rgba(243,242,240,.07);
+    --rose:#FF4D86;
+    --rose-ink:#12040A;
+    --focus:#FF7AA6;
+    --tile-shadow:0 1px 2px rgba(0,0,0,.5), 0 18px 40px -22px rgba(0,0,0,.9);
+    --bloom-blend:screen;
+    --bloom-alpha:.9;
+  }
+  :root[data-theme="light"]{
+    color-scheme:light;
+    --ground:#F5F4F3;
+    --surface:#FFFFFF;
+    --surface-2:rgba(14,14,17,.035);
+    --ink:#0E0E11;
+    --ink-mute:#8B8B92;
+    --hairline:rgba(14,14,17,.11);
+    --hairline-soft:rgba(14,14,17,.06);
+    --rose:#FF2E72;
+    --rose-ink:#FFFFFF;
+    --focus:#FF2E72;
+    --tile-shadow:0 1px 2px rgba(14,14,17,.05), 0 12px 32px -18px rgba(14,14,17,.28);
+    --bloom-blend:normal;
+    --bloom-alpha:.85;
+  }
+
+  /* ---------- base ---------- */
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;overflow-x:hidden}
+  body{
+    background:var(--ground);
+    color:var(--ink);
+    font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  h1,h2,h3,p{margin:0}
+  h1,h2{text-wrap:balance}
+
+  .mono{
+    font-family:"JBMono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-variant-numeric:tabular-nums;
+  }
+  .label{
+    font-family:"JBMono",ui-monospace,Menlo,monospace;
+    font-size:.66rem;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+  }
+
+  .shell{
+    width:100%;
+    max-width:76rem;
+    margin-inline:auto;
+    padding-inline:clamp(1.25rem,5vw,3.5rem);
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead{
+    position:relative; z-index:3;
+    border-bottom:1px solid var(--hairline-soft);
+  }
+  .masthead__row{
+    display:flex; align-items:center; justify-content:space-between;
+    height:4rem; gap:1rem;
+  }
+  .wordmark{
+    display:flex; align-items:center; gap:.5rem;
+    font-weight:600; font-size:1.02rem; letter-spacing:-.03em;
+    color:var(--ink);
+  }
+  .wordmark svg{width:1.05rem;height:1.05rem;flex:none;color:var(--rose)}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:clamp(38rem,92svh,58rem);
+    display:flex; flex-direction:column; justify-content:center;
+    padding-block:clamp(3rem,9vh,6rem) clamp(12rem,30vh,20rem);
+    isolation:isolate;
+  }
+  #bloom{
+    position:absolute; inset:auto 0 0 0;
+    width:100%; height:min(66%,34rem);
+    z-index:0; pointer-events:none;
+    mix-blend-mode:var(--bloom-blend);
+    opacity:var(--bloom-alpha);
+  }
+  .hero__inner{
+    position:relative; z-index:1;
+    display:flex; flex-direction:column; align-items:flex-start;
+    gap:clamp(1.4rem,3vw,2rem);
+    max-width:46rem;
+  }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:.55rem;
+    padding:.4rem .8rem .4rem .6rem;
+    border:1px solid var(--hairline);
+    border-radius:999px;
+    background:var(--surface);
+    font-family:"JBMono",ui-monospace,Menlo,monospace;
+    font-size:.63rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink);
+  }
+  .eyebrow i{
+    width:.4rem;height:.4rem;border-radius:50%;
+    background:var(--rose); flex:none;
+  }
+
+  .headline{
+    font-size:clamp(2.35rem,6.4vw,4.6rem);
+    font-weight:300;
+    line-height:1.02;
+    letter-spacing:-.035em;
+  }
+  .headline em{font-style:normal;color:var(--rose)}
+
+  .deck{
+    font-size:clamp(1rem,1.5vw,1.15rem);
+    line-height:1.55;
+    color:var(--ink-mute);
+    max-width:34rem;
+  }
+  .deck strong{color:var(--ink);font-weight:500}
+
+  /* ---------- capture ---------- */
+  .capture{width:100%;max-width:31rem;display:flex;flex-direction:column;gap:.7rem}
+  .field{
+    display:flex; gap:.4rem;
+    background:var(--surface);
+    border:1px solid var(--hairline);
+    border-radius:999px;
+    padding:.32rem .32rem .32rem 1.1rem;
+    box-shadow:var(--tile-shadow);
+  }
+  .field:focus-within{
+    border-color:var(--focus);
+    box-shadow:var(--tile-shadow), 0 0 0 3px color-mix(in srgb, var(--focus) 26%, transparent);
+  }
+  .field input{
+    flex:1 1 auto; min-width:0;
+    border:0; background:transparent; outline:none;
+    font-family:inherit; font-size:.95rem; color:var(--ink);
+    padding-block:.72rem;
+  }
+  .field input::placeholder{color:var(--ink-mute)}
+  .field button{
+    flex:none; border:0; cursor:pointer;
+    border-radius:999px; padding:0 1.25rem;
+    background:var(--ink); color:var(--ground);
+    font-family:inherit; font-weight:600; font-size:.87rem; letter-spacing:-.01em;
+    transition:background .18s ease,transform .18s ease;
+  }
+  .field button:hover{background:var(--rose);color:var(--rose-ink)}
+  .field button:active{transform:scale(.98)}
+  .field button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+  .capture__note{
+    min-height:1.15rem;
+    font-family:"JBMono",ui-monospace,Menlo,monospace;
+    font-size:.7rem; line-height:1.5; letter-spacing:.01em;
+    color:var(--ink-mute);
+  }
+  .capture__note[data-state="ok"]{color:var(--rose)}
+
+  /* ---------- facts strip ---------- */
+  .rule{
+    position:relative; height:1px; background:var(--hairline);
+    margin-block:0;
+  }
+  .rule::before,.rule::after{
+    content:""; position:absolute; top:-3px; width:1px; height:7px; background:var(--hairline);
+  }
+  .rule::before{left:0}
+  .rule::after{right:0}
+
+  .facts{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:1.5rem;
+    padding-block:clamp(1.6rem,4vw,2.4rem);
+  }
+  .fact{display:flex;flex-direction:column;gap:.4rem}
+  .fact__value{font-size:clamp(1.05rem,2vw,1.3rem);font-weight:500;letter-spacing:-.02em}
+
+  /* ---------- steps ---------- */
+  .steps-sec{padding-block:clamp(3rem,8vw,5rem)}
+  .steps-sec__head{display:flex;flex-direction:column;gap:.9rem;max-width:34rem;margin-bottom:clamp(2rem,4vw,2.8rem)}
+  .steps-sec__title{font-size:clamp(1.5rem,3vw,2rem);font-weight:300;letter-spacing:-.03em;line-height:1.15}
+  .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+  .tile{
+    background:var(--surface);
+    border:1px solid var(--hairline-soft);
+    border-radius:1.25rem;
+    padding:1.5rem 1.4rem 1.6rem;
+    display:flex; flex-direction:column; gap:.7rem;
+    box-shadow:var(--tile-shadow);
+  }
+  .tile__icon{
+    width:2.4rem;height:2.4rem;border-radius:.8rem;
+    background:var(--surface-2);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--rose); margin-bottom:.3rem;
+  }
+  .tile__icon svg{width:1.15rem;height:1.15rem}
+  .tile h3{font-size:1rem;font-weight:600;letter-spacing:-.015em}
+  .tile p{font-size:.9rem;line-height:1.55;color:var(--ink-mute)}
+
+  /* ---------- footer ---------- */
+  .foot{border-top:1px solid var(--hairline-soft)}
+  .foot__row{
+    display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;
+    justify-content:space-between;align-items:center;
+    padding-block:1.6rem 2.4rem;
+  }
+
+  .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  /* ---------- entrance ---------- */
+  @media (prefers-reduced-motion:no-preference){
+    .rise{opacity:0;transform:translateY(14px);animation:rise .85s cubic-bezier(.2,.7,.25,1) forwards}
+    .rise:nth-child(1){animation-delay:.05s}
+    .rise:nth-child(2){animation-delay:.16s}
+    .rise:nth-child(3){animation-delay:.27s}
+    .rise:nth-child(4){animation-delay:.38s}
+  }
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  @media (max-width:860px){
+    .steps{grid-template-columns:1fr}
+    .facts{grid-template-columns:1fr;gap:1.2rem}
+  }
+  @media (max-width:560px){
+    .field{flex-direction:column;border-radius:1.2rem;padding:.45rem}
+    .field input{padding-inline:.7rem}
+    .field button{padding-block:.8rem}
+  }
+</style>
+
+<header class="masthead">
+  <div class="shell masthead__row">
+    <span class="wordmark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 15V7"/><path d="M12 19V5"/><path d="M20 15V7"/>
+      </svg>
+      senior.chat
+    </span>
+    <span class="label">Waitlist&nbsp;— 2026</span>
+  </div>
+</header>
+
+<section class="hero">
+  <canvas id="bloom" aria-hidden="true"></canvas>
+  <div class="shell">
+    <div class="hero__inner">
+      <span class="eyebrow rise"><i></i>No counsellors · No commission</span>
+      <h1 class="headline rise">Advice from students <em>who actually live there.</em></h1>
+      <p class="deck rise">Chat one-to-one with verified students at the universities you're considering. <strong>The version a counsellor can't sell you</strong> — rent, weather, racism, food, job market, whether the course is worth it.</p>
+      <form class="capture rise" id="form" novalidate>
+        <div class="field">
+          <label class="vh" for="email">Email address</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required />
+          <button type="submit">Request access</button>
+        </div>
+        <p class="capture__note" id="note" role="status" aria-live="polite">First 500 get priority matching. No spam.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="shell">
+  <div class="rule"></div>
+  <div class="facts">
+    <div class="fact"><span class="label">Launching</span><span class="fact__value">Early 2026</span></div>
+    <div class="fact"><span class="label">First destinations</span><span class="fact__value">UK · Canada</span></div>
+    <div class="fact"><span class="label">Verified mentors</span><span class="fact__value mono">200+ at launch</span></div>
+  </div>
+  <div class="rule"></div>
+</div>
+
+<section class="steps-sec">
+  <div class="shell">
+    <div class="steps-sec__head">
+      <span class="label">How it works</span>
+      <h2 class="steps-sec__title">Three steps between you and someone who is already there.</h2>
+    </div>
+    <div class="steps">
+      <article class="tile">
+        <span class="tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg></span>
+        <h3>Tell us the plan</h3>
+        <p>Country, course, city — even a half-formed one. Especially a half-formed one.</p>
+      </article>
+      <article class="tile">
+        <span class="tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7 9.5 17.5 4 12"/></svg></span>
+        <h3>We match a senior</h3>
+        <p>Verified by university email, enrolment proof and video. Someone on almost exactly your path.</p>
+      </article>
+      <article class="tile">
+        <span class="tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg></span>
+        <h3>Get the real story</h3>
+        <p>One-to-one, unfiltered, no commission in the room. Notes afterwards, so you keep it.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="shell foot__row">
+    <span class="label">senior.chat</span>
+    <span class="label">Built by students, for students</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- waitlist capture ---------------- */
+  var form = document.getElementById("form");
+  var note = document.getElementById("note");
+  var email = document.getElementById("email");
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var v = email.value.trim();
+    if(!v || v.indexOf("@") < 1 || v.lastIndexOf(".") < v.indexOf("@")){
+      note.textContent = "That email looks incomplete — check it and try again.";
+      note.removeAttribute("data-state");
+      email.focus();
+      return;
+    }
+    note.textContent = "You're on the list. We'll write to " + v + " first.";
+    note.setAttribute("data-state","ok");
+    form.reset();
+  });
+
+  /* ---------------- generative bloom ---------------- */
+  var canvas = document.getElementById("bloom");
+  var ctx = canvas.getContext("2d");
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  var PALETTE = [
+    [255, 74, 140],
+    [255, 122, 165],
+    [255, 176, 201],
+    [255, 118, 92],
+    [255, 208, 220]
+  ];
+
+  var sprites = [];
+  function buildSprites(){
+    sprites = PALETTE.map(function(rgb){
+      var s = document.createElement("canvas");
+      var size = 64;
+      s.width = s.height = size;
+      var c = s.getContext("2d");
+      var g = c.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+      g.addColorStop(0,   "rgba(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ",0.95)");
+      g.addColorStop(0.45,"rgba(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ",0.42)");
+      g.addColorStop(1,   "rgba(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ",0)");
+      c.fillStyle = g;
+      c.fillRect(0,0,size,size);
+      return s;
+    });
+  }
+
+  var particles = [];
+  var W = 0, H = 0, dpr = 1;
+
+  function gauss(){
+    var u = 0, v = 0;
+    while(u === 0) u = Math.random();
+    while(v === 0) v = Math.random();
+    return Math.sqrt(-2*Math.log(u)) * Math.cos(2*Math.PI*v);
+  }
+
+  function seed(){
+    particles = [];
+    var count = W < 620 ? 620 : (W < 1100 ? 1000 : 1500);
+    var lobes = [];
+    var lobeCount = 9;
+    for(var l = 0; l < lobeCount; l++){
+      var t = l / (lobeCount - 1);
+      // shallow ridge: high in the middle, tapering to the edges
+      var arc = Math.sin(Math.PI * t);
+      lobes.push({
+        x: (0.06 + t * 0.88) * W + (Math.random() - 0.5) * W * 0.05,
+        y: H - arc * H * (0.44 + Math.random() * 0.2) - H * 0.05,
+        r: (0.09 + arc * 0.1 + Math.random() * 0.04) * W,
+        w: 0.55 + arc * 0.9
+      });
+    }
+    var total = lobes.reduce(function(a,b){ return a + b.w; }, 0);
+
+    lobes.forEach(function(lobe){
+      var n = Math.round(count * (lobe.w / total));
+      for(var i = 0; i < n; i++){
+        var ang = Math.random() * Math.PI * 2;
+        var rad = Math.abs(gauss()) * 0.42;
+        if(rad > 1.25) rad = 1.25;
+        var px = lobe.x + Math.cos(ang) * rad * lobe.r * 1.25;
+        var py = lobe.y + Math.sin(ang) * rad * lobe.r * 0.82 + rad * lobe.r * 0.28;
+        // deeper rose near the core, softer pink at the fringe
+        var idx;
+        if(rad < 0.34)      idx = Math.random() < 0.72 ? 0 : 3;
+        else if(rad < 0.68) idx = Math.random() < 0.7 ? 1 : 0;
+        else                idx = Math.random() < 0.62 ? 2 : 4;
+        particles.push({
+          x: px, y: py,
+          s: (1.6 + Math.pow(Math.random(), 2.1) * 9) * (1 - rad * 0.32),
+          a: 0.2 + Math.random() * 0.5,
+          sprite: idx,
+          ph: Math.random() * Math.PI * 2,
+          sp: 0.15 + Math.random() * 0.5,
+          amp: 1.2 + Math.random() * 3.4
+        });
+      }
+    });
+    particles.sort(function(p,q){ return q.s - p.s; });
+  }
+
+  function resize(){
+    var rect = canvas.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = Math.max(rect.width, 1);
+    H = Math.max(rect.height, 1);
+    canvas.width  = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    seed();
+  }
+
+  function draw(time){
+    ctx.clearRect(0, 0, W, H);
+
+    // ambient haze behind the bloom
+    var glow = ctx.createRadialGradient(W*0.5, H*0.88, 0, W*0.5, H*0.88, W*0.55);
+    glow.addColorStop(0,   "rgba(255,120,160,0.20)");
+    glow.addColorStop(0.55,"rgba(255,150,180,0.08)");
+    glow.addColorStop(1,   "rgba(255,150,180,0)");
+    ctx.fillStyle = glow;
+    ctx.fillRect(0, 0, W, H);
+
+    var t = time * 0.001;
+    for(var i = 0; i < particles.length; i++){
+      var p = particles[i];
+      var dx = 0, dy = 0;
+      if(!reduced.matches){
+        dx = Math.cos(t * p.sp + p.ph) * p.amp;
+        dy = Math.sin(t * p.sp * 0.78 + p.ph) * p.amp * 0.6;
+      }
+      var d = p.s * 2.6;
+      ctx.globalAlpha = p.a;
+      ctx.drawImage(sprites[p.sprite], p.x + dx - d/2, p.y + dy - d/2, d, d);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  var raf = null;
+  function loop(time){
+    draw(time);
+    raf = requestAnimationFrame(loop);
+  }
+
+  buildSprites();
+  resize();
+
+  if(reduced.matches){
+    draw(0);
+  } else {
+    raf = requestAnimationFrame(loop);
+  }
+
+  var rt = null;
+  window.addEventListener("resize", function(){
+    clearTimeout(rt);
+    rt = setTimeout(function(){
+      resize();
+      if(reduced.matches) draw(0);
+    }, 160);
+  });
+
+  reduced.addEventListener("change", function(){
+    if(reduced.matches){
+      if(raf) cancelAnimationFrame(raf);
+      raf = null;
+      draw(0);
+    } else if(!raf){
+      raf = requestAnimationFrame(loop);
+    }
+  });
+})();
+</script>
