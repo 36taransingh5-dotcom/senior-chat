@@ -1,5 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>senior.chat — advice from students who actually live there</title>
+<meta name="description" content="Join the senior.chat waitlist — verified 1:1 conversations with current students abroad. Rent, weather, food, jobs: the version a counsellor can't sell you." />
+<meta property="og:title" content="senior.chat — advice from students who actually live there" />
+<meta property="og:description" content="Verified 1:1 conversations with current students abroad, for Indian students evaluating study-abroad options." />
+<meta property="og:type" content="website" />
 
 <style>
   @font-face{
@@ -12,80 +20,97 @@
     src:url(data:font/woff2;base64,{{JBM}}) format("woff2");
     font-weight:400 500; font-style:normal; font-display:swap;
   }
+  @font-face{
+    font-family:"Instrument Serif";
+    src:url(data:font/woff2;base64,{{SERIF}}) format("woff2");
+    font-weight:400; font-style:normal; font-display:swap;
+  }
+  @font-face{
+    font-family:"Instrument Serif";
+    src:url(data:font/woff2;base64,{{SERIF_IT}}) format("woff2");
+    font-weight:400; font-style:italic; font-display:swap;
+  }
 
-  /* ---------- tokens : light ---------- */
+  /* ---------- tokens : day ---------- */
   :root{
     color-scheme:light;
-    --ground:#F5F4F3;
-    --surface:#FFFFFF;
-    --surface-2:rgba(14,14,17,.035);
-    --ink:#0E0E11;
-    --ink-mute:#8B8B92;
-    --hairline:rgba(14,14,17,.11);
-    --hairline-soft:rgba(14,14,17,.06);
-    --rose:#FF2E72;
-    --rose-ink:#FFFFFF;
-    --focus:#FF2E72;
-    --tile-shadow:0 1px 2px rgba(14,14,17,.05), 0 12px 32px -18px rgba(14,14,17,.28);
-    --bloom-blend:normal;
-    --bloom-alpha:.85;
+    --paper:#E7E9E1;
+    --paper-2:#EFF1E9;
+    --ink:#22331C;
+    --ink-soft:rgba(34,51,28,.80);
+    --ink-faint:rgba(34,51,28,.70);
+    --olive:#314216;
+    --olive-deep:#243310;
+    --on-olive:#F2F6EA;
+    --sage:#65876D;
+    --sage-soft:rgba(101,135,109,.16);
+    --steel:#6494B2;
+    --steel-soft:rgba(100,148,178,.16);
+    --mist:#B2C3C9;
+    --hairline:rgba(34,51,28,.14);
+    --hairline-soft:rgba(34,51,28,.08);
+    --glass:rgba(255,255,255,.52);
+    --glass-strong:rgba(255,255,255,.68);
+    --glass-brd:rgba(255,255,255,.8);
+    --card:rgba(255,255,255,.6);
+    --sky-1:#46708D;
+    --sky-2:#6494B2;
+    --sky-3:#87ABC0;
+    --sky-4:#B2C3C9;
+    --sky-5:#E4E9E2;
+    --glow:rgba(255,252,238,.60);
+    --hill-back:#A4BAB0;
+    --hill-mid:#65876D;
+    --hill-front:#314216;
+    --focus:#3E5A1E;
+    --shadow-lg:0 30px 70px -28px rgba(34,51,28,.38);
+    --shadow-md:0 18px 44px -20px rgba(34,51,28,.28);
+    --shadow-sm:0 1px 2px rgba(34,51,28,.06), 0 10px 26px -16px rgba(34,51,28,.22);
   }
+  /* ---------- tokens : dusk ---------- */
   @media (prefers-color-scheme:dark){
     :root{
       color-scheme:dark;
-      --ground:#08080A;
-      --surface:#101014;
-      --surface-2:rgba(255,255,255,.045);
-      --ink:#F3F2F0;
-      --ink-mute:#7C7C85;
-      --hairline:rgba(243,242,240,.13);
-      --hairline-soft:rgba(243,242,240,.07);
-      --rose:#FF4D86;
-      --rose-ink:#12040A;
-      --focus:#FF7AA6;
-      --tile-shadow:0 1px 2px rgba(0,0,0,.5), 0 18px 40px -22px rgba(0,0,0,.9);
-      --bloom-blend:screen;
-      --bloom-alpha:.9;
+      --paper:#12170F;
+      --paper-2:#171E13;
+      --ink:#EDF2E4;
+      --ink-soft:rgba(237,242,228,.72);
+      --ink-faint:rgba(237,242,228,.58);
+      --olive:#3A501D;
+      --olive-deep:#2C3F15;
+      --on-olive:#F2F6EA;
+      --sage:#7B9C83;
+      --sage-soft:rgba(123,156,131,.16);
+      --steel:#7BA6C2;
+      --steel-soft:rgba(123,166,194,.15);
+      --hairline:rgba(237,242,228,.16);
+      --hairline-soft:rgba(237,242,228,.08);
+      --glass:rgba(20,28,17,.52);
+      --glass-strong:rgba(20,28,17,.72);
+      --glass-brd:rgba(255,255,255,.14);
+      --card:rgba(22,30,19,.55);
+      --sky-1:#0A1320;
+      --sky-2:#122335;
+      --sky-3:#1C3342;
+      --sky-4:#2C454F;
+      --sky-5:#3B5250;
+      --glow:rgba(206,226,255,.2);
+      --hill-back:#223A2F;
+      --hill-mid:#182B21;
+      --hill-front:#0D1910;
+      --focus:#9BC088;
+      --shadow-lg:0 30px 70px -28px rgba(0,0,0,.75);
+      --shadow-md:0 18px 44px -20px rgba(0,0,0,.6);
+      --shadow-sm:0 1px 2px rgba(0,0,0,.4), 0 10px 26px -16px rgba(0,0,0,.55);
     }
-  }
-  :root[data-theme="dark"]{
-    color-scheme:dark;
-    --ground:#08080A;
-    --surface:#101014;
-    --surface-2:rgba(255,255,255,.045);
-    --ink:#F3F2F0;
-    --ink-mute:#7C7C85;
-    --hairline:rgba(243,242,240,.13);
-    --hairline-soft:rgba(243,242,240,.07);
-    --rose:#FF4D86;
-    --rose-ink:#12040A;
-    --focus:#FF7AA6;
-    --tile-shadow:0 1px 2px rgba(0,0,0,.5), 0 18px 40px -22px rgba(0,0,0,.9);
-    --bloom-blend:screen;
-    --bloom-alpha:.9;
-  }
-  :root[data-theme="light"]{
-    color-scheme:light;
-    --ground:#F5F4F3;
-    --surface:#FFFFFF;
-    --surface-2:rgba(14,14,17,.035);
-    --ink:#0E0E11;
-    --ink-mute:#8B8B92;
-    --hairline:rgba(14,14,17,.11);
-    --hairline-soft:rgba(14,14,17,.06);
-    --rose:#FF2E72;
-    --rose-ink:#FFFFFF;
-    --focus:#FF2E72;
-    --tile-shadow:0 1px 2px rgba(14,14,17,.05), 0 12px 32px -18px rgba(14,14,17,.28);
-    --bloom-blend:normal;
-    --bloom-alpha:.85;
   }
 
   /* ---------- base ---------- */
   *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
   html,body{margin:0;padding:0;overflow-x:hidden}
   body{
-    background:var(--ground);
+    background:var(--paper);
     color:var(--ink);
     font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     font-weight:400;
@@ -94,7 +119,11 @@
   }
   h1,h2,h3,p{margin:0}
   h1,h2{text-wrap:balance}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--olive);color:var(--on-olive)}
+  :focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:.3rem}
 
+  .serif{font-family:"Instrument Serif",Georgia,"Times New Roman",serif;font-weight:400}
   .mono{
     font-family:"JBMono",ui-monospace,SFMono-Regular,Menlo,monospace;
     font-variant-numeric:tabular-nums;
@@ -104,449 +133,1197 @@
     font-size:.66rem;
     letter-spacing:.15em;
     text-transform:uppercase;
-    color:var(--ink-mute);
+    color:var(--ink-faint);
   }
 
   .shell{
     width:100%;
-    max-width:76rem;
+    max-width:74rem;
     margin-inline:auto;
-    padding-inline:clamp(1.25rem,5vw,3.5rem);
+    padding-inline:clamp(1.25rem,5vw,3rem);
+  }
+  .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  /* grain */
+  .grain{
+    position:fixed;inset:0;z-index:60;pointer-events:none;
+    opacity:.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* ---------- masthead ---------- */
-  .masthead{
-    position:relative; z-index:3;
-    border-bottom:1px solid var(--hairline-soft);
+  /* ---------- nav : floating bento pill ---------- */
+  .nav{
+    position:fixed;inset:clamp(.8rem,2.5vw,1.4rem) 0 auto 0;z-index:40;
+    display:flex;justify-content:center;pointer-events:none;
+    padding-inline:1rem;
   }
-  .masthead__row{
-    display:flex; align-items:center; justify-content:space-between;
-    height:4rem; gap:1rem;
+  .nav__pill{
+    pointer-events:auto;
+    display:flex;align-items:center;gap:clamp(1rem,2.5vw,1.8rem);
+    padding:.42rem .45rem .42rem 1.15rem;
+    border-radius:999px;
+    background:var(--glass);
+    border:1px solid var(--glass-brd);
+    backdrop-filter:blur(18px) saturate(1.5);
+    -webkit-backdrop-filter:blur(18px) saturate(1.5);
+    box-shadow:var(--shadow-md);
+    max-width:100%;
   }
   .wordmark{
-    display:flex; align-items:center; gap:.5rem;
-    font-weight:600; font-size:1.02rem; letter-spacing:-.03em;
+    display:flex;align-items:center;gap:.5rem;
+    font-family:"Instrument Serif",Georgia,serif;
+    font-style:italic;
+    font-size:1.28rem;letter-spacing:-.01em;
     color:var(--ink);
+    white-space:nowrap;
   }
-  .wordmark svg{width:1.05rem;height:1.05rem;flex:none;color:var(--rose)}
+  .wordmark svg{width:.95rem;height:.95rem;flex:none;color:var(--olive)}
+  @media (prefers-color-scheme:dark){.wordmark svg{color:var(--sage)}}
+  .nav__links{display:flex;align-items:center;gap:1.35rem}
+  .nav__links a{
+    font-size:.85rem;font-weight:500;color:var(--ink-soft);
+    transition:color .18s ease;
+  }
+  .nav__links a:hover{color:var(--ink)}
+  .btn{
+    display:inline-flex;align-items:center;gap:.45rem;
+    border:0;cursor:pointer;
+    border-radius:999px;
+    font-family:inherit;font-weight:600;font-size:.87rem;letter-spacing:-.01em;
+    padding:.68rem 1.3rem;
+    transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+    white-space:nowrap;
+  }
+  .btn--primary{
+    background:var(--olive);color:var(--on-olive);
+    box-shadow:0 10px 24px -10px rgba(36,51,16,.5);
+  }
+  .btn--primary:hover{transform:translateY(-1px);background:var(--olive-deep)}
+  .btn--primary:active{transform:scale(.98)}
+  .btn--glass{
+    background:var(--glass);color:var(--ink);
+    border:1px solid var(--glass-brd);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+  }
+  .btn--glass:hover{transform:translateY(-1px);background:var(--glass-strong)}
+  .btn svg{width:.85rem;height:.85rem}
+  @media (max-width:760px){.nav__links{display:none}}
 
-  /* ---------- hero ---------- */
+  /* ---------- hero : sky ---------- */
   .hero{
-    position:relative;
-    min-height:clamp(38rem,92svh,58rem);
-    display:flex; flex-direction:column; justify-content:center;
-    padding-block:clamp(3rem,9vh,6rem) clamp(12rem,30vh,20rem);
-    isolation:isolate;
+    position:relative;isolation:isolate;
+    padding-top:clamp(8.5rem,16vh,11rem);
+    background:
+      radial-gradient(72% 50% at 50% 31%, var(--glow), transparent 62%),
+      linear-gradient(180deg,
+        var(--sky-1) 0%,
+        var(--sky-2) 24%,
+        var(--sky-3) 48%,
+        var(--sky-4) 68%,
+        var(--sky-5) 88%);
+    overflow:hidden;
   }
-  #bloom{
-    position:absolute; inset:auto 0 0 0;
-    width:100%; height:min(66%,34rem);
-    z-index:0; pointer-events:none;
-    mix-blend-mode:var(--bloom-blend);
-    opacity:var(--bloom-alpha);
+  #clouds{
+    position:absolute;inset:0;z-index:1;
+    width:100%;height:100%;
+    pointer-events:none;
   }
   .hero__inner{
-    position:relative; z-index:1;
-    display:flex; flex-direction:column; align-items:flex-start;
-    gap:clamp(1.4rem,3vw,2rem);
-    max-width:46rem;
+    position:relative;z-index:3;
+    display:flex;flex-direction:column;align-items:center;
+    text-align:center;
   }
 
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:.55rem;
-    padding:.4rem .8rem .4rem .6rem;
-    border:1px solid var(--hairline);
+  .badge{
+    display:inline-flex;align-items:center;gap:.6rem;
+    padding:.5rem 1.05rem;
     border-radius:999px;
-    background:var(--surface);
-    font-family:"JBMono",ui-monospace,Menlo,monospace;
-    font-size:.63rem; letter-spacing:.14em; text-transform:uppercase;
-    color:var(--ink);
+    background:var(--olive);color:var(--on-olive);
+    font-size:.8rem;font-weight:600;letter-spacing:.01em;
+    box-shadow:0 12px 28px -12px rgba(36,51,16,.55);
   }
-  .eyebrow i{
-    width:.4rem;height:.4rem;border-radius:50%;
-    background:var(--rose); flex:none;
+  .badge svg{width:.8rem;height:.8rem;opacity:.85}
+  .badge .dot{
+    width:.42rem;height:.42rem;border-radius:50%;
+    background:#B9E28A;flex:none;
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .badge .dot{animation:pulse 2.2s ease-in-out infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
   }
 
   .headline{
-    font-size:clamp(2.35rem,6.4vw,4.6rem);
-    font-weight:300;
+    margin-top:1.6rem;
+    font-family:"Instrument Serif",Georgia,serif;
+    font-weight:400;
+    font-size:clamp(2.9rem,7.4vw,5.6rem);
     line-height:1.02;
-    letter-spacing:-.035em;
+    letter-spacing:-.015em;
+    color:var(--ink);
+    max-width:15ch;
   }
-  .headline em{font-style:normal;color:var(--rose)}
+  .headline em{font-style:italic}
 
   .deck{
-    font-size:clamp(1rem,1.5vw,1.15rem);
-    line-height:1.55;
-    color:var(--ink-mute);
-    max-width:34rem;
+    margin-top:1.35rem;
+    font-size:clamp(1rem,1.6vw,1.16rem);
+    line-height:1.6;
+    color:var(--ink-soft);
+    max-width:36rem;
   }
-  .deck strong{color:var(--ink);font-weight:500}
+  .deck strong{color:var(--ink);font-weight:600}
 
   /* ---------- capture ---------- */
-  .capture{width:100%;max-width:31rem;display:flex;flex-direction:column;gap:.7rem}
+  .capture{
+    margin-top:2.1rem;
+    width:100%;max-width:32rem;
+    display:flex;flex-direction:column;align-items:center;gap:.75rem;
+  }
   .field{
-    display:flex; gap:.4rem;
-    background:var(--surface);
-    border:1px solid var(--hairline);
+    display:flex;gap:.4rem;width:100%;
+    background:var(--glass-strong);
+    border:1px solid var(--glass-brd);
+    backdrop-filter:blur(16px) saturate(1.4);
+    -webkit-backdrop-filter:blur(16px) saturate(1.4);
     border-radius:999px;
-    padding:.32rem .32rem .32rem 1.1rem;
-    box-shadow:var(--tile-shadow);
+    padding:.35rem .35rem .35rem 1.25rem;
+    box-shadow:var(--shadow-md);
   }
   .field:focus-within{
     border-color:var(--focus);
-    box-shadow:var(--tile-shadow), 0 0 0 3px color-mix(in srgb, var(--focus) 26%, transparent);
+    box-shadow:var(--shadow-md), 0 0 0 3px color-mix(in srgb, var(--focus) 24%, transparent);
   }
   .field input{
-    flex:1 1 auto; min-width:0;
-    border:0; background:transparent; outline:none;
-    font-family:inherit; font-size:.95rem; color:var(--ink);
+    flex:1 1 auto;min-width:0;
+    border:0;background:transparent;outline:none;
+    font-family:inherit;font-size:.95rem;color:var(--ink);
     padding-block:.72rem;
   }
-  .field input::placeholder{color:var(--ink-mute)}
+  .field input::placeholder{color:var(--ink-faint)}
   .field button{
-    flex:none; border:0; cursor:pointer;
-    border-radius:999px; padding:0 1.25rem;
-    background:var(--ink); color:var(--ground);
-    font-family:inherit; font-weight:600; font-size:.87rem; letter-spacing:-.01em;
+    flex:none;border:0;cursor:pointer;
+    border-radius:999px;padding:0 1.35rem;
+    background:var(--olive);color:var(--on-olive);
+    font-family:inherit;font-weight:600;font-size:.88rem;letter-spacing:-.01em;
     transition:background .18s ease,transform .18s ease;
   }
-  .field button:hover{background:var(--rose);color:var(--rose-ink)}
+  .field button:hover{background:var(--olive-deep)}
   .field button:active{transform:scale(.98)}
-  .field button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
   .capture__note{
     min-height:1.15rem;
     font-family:"JBMono",ui-monospace,Menlo,monospace;
-    font-size:.7rem; line-height:1.5; letter-spacing:.01em;
-    color:var(--ink-mute);
+    font-size:.7rem;line-height:1.5;letter-spacing:.02em;
+    color:var(--ink-soft);
   }
-  .capture__note[data-state="ok"]{color:var(--rose)}
+  .capture__note[data-state="ok"]{color:var(--focus)}
+  .capture__alt{
+    display:inline-flex;align-items:center;gap:.4rem;
+    font-size:.84rem;font-weight:500;color:var(--ink-soft);
+    transition:color .18s ease;
+  }
+  .capture__alt:hover{color:var(--ink)}
+  .capture__alt svg{width:.8rem;height:.8rem}
 
-  /* ---------- facts strip ---------- */
-  .rule{
-    position:relative; height:1px; background:var(--hairline);
-    margin-block:0;
+  /* ---------- hero : glass dashboard ---------- */
+  .stage{
+    position:relative;z-index:3;
+    margin-top:clamp(3rem,6vw,4.5rem);
+    margin-bottom:clamp(-4rem,-6vw,-2.5rem);
+    padding-bottom:clamp(6rem,12vw,9rem);
   }
-  .rule::before,.rule::after{
-    content:""; position:absolute; top:-3px; width:1px; height:7px; background:var(--hairline);
+  .dash{
+    position:relative;
+    max-width:58rem;margin-inline:auto;
+    border-radius:1.6rem;
+    background:var(--glass);
+    border:1px solid var(--glass-brd);
+    backdrop-filter:blur(22px) saturate(1.5);
+    -webkit-backdrop-filter:blur(22px) saturate(1.5);
+    box-shadow:var(--shadow-lg);
+    overflow:hidden;
+    text-align:left;
   }
-  .rule::before{left:0}
-  .rule::after{right:0}
-
-  .facts{
+  .dash__bar{
+    display:flex;align-items:center;gap:.8rem;
+    padding:.85rem 1.2rem;
+    border-bottom:1px solid var(--hairline-soft);
+  }
+  .dash__dots{display:flex;gap:.4rem}
+  .dash__dots i{width:.62rem;height:.62rem;border-radius:50%;background:var(--hairline)}
+  .dash__dots i:nth-child(1){background:#E08579}
+  .dash__dots i:nth-child(2){background:#E2B65C}
+  .dash__dots i:nth-child(3){background:#7FB069}
+  .dash__title{
+    font-family:"JBMono",ui-monospace,Menlo,monospace;
+    font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+  .dash__chip{
+    margin-left:auto;
+    display:inline-flex;align-items:center;gap:.35rem;
+    padding:.28rem .7rem;border-radius:999px;
+    background:var(--sage-soft);color:var(--sage);
+    font-size:.7rem;font-weight:700;
+  }
+  .dash__chip svg{width:.7rem;height:.7rem}
+  .dash__body{
     display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:1.5rem;
-    padding-block:clamp(1.6rem,4vw,2.4rem);
+    grid-template-columns:1.45fr 1fr;
+    gap:1.2rem;
+    padding:1.4rem;
   }
-  .fact{display:flex;flex-direction:column;gap:.4rem}
-  .fact__value{font-size:clamp(1.05rem,2vw,1.3rem);font-weight:500;letter-spacing:-.02em}
 
-  /* ---------- steps ---------- */
-  .steps-sec{padding-block:clamp(3rem,8vw,5rem)}
-  .steps-sec__head{display:flex;flex-direction:column;gap:.9rem;max-width:34rem;margin-bottom:clamp(2rem,4vw,2.8rem)}
-  .steps-sec__title{font-size:clamp(1.5rem,3vw,2rem);font-weight:300;letter-spacing:-.03em;line-height:1.15}
-  .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
-  .tile{
-    background:var(--surface);
+  .chat{display:flex;flex-direction:column;gap:.7rem}
+  .msg{
+    max-width:82%;
+    padding:.72rem 1rem;
+    border-radius:1.05rem;
+    font-size:.88rem;line-height:1.5;
+  }
+  .msg--in{
+    align-self:flex-start;
+    background:var(--card);
     border:1px solid var(--hairline-soft);
-    border-radius:1.25rem;
-    padding:1.5rem 1.4rem 1.6rem;
-    display:flex; flex-direction:column; gap:.7rem;
-    box-shadow:var(--tile-shadow);
+    border-bottom-left-radius:.3rem;
+    color:var(--ink);
   }
-  .tile__icon{
-    width:2.4rem;height:2.4rem;border-radius:.8rem;
-    background:var(--surface-2);
+  .msg--out{
+    align-self:flex-end;
+    background:var(--olive);color:var(--on-olive);
+    border-bottom-right-radius:.3rem;
+  }
+  .msg__from{
+    display:block;
+    font-family:"JBMono",ui-monospace,Menlo,monospace;
+    font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-faint);
+    margin-bottom:.3rem;
+  }
+  .typing{
+    align-self:flex-start;
+    display:inline-flex;gap:.3rem;
+    padding:.8rem 1rem;
+    background:var(--card);
+    border:1px solid var(--hairline-soft);
+    border-radius:1.05rem;border-bottom-left-radius:.3rem;
+  }
+  .typing i{width:.4rem;height:.4rem;border-radius:50%;background:var(--ink-faint)}
+  @media (prefers-reduced-motion:no-preference){
+    .typing i{animation:blink 1.2s ease-in-out infinite}
+    .typing i:nth-child(2){animation-delay:.18s}
+    .typing i:nth-child(3){animation-delay:.36s}
+    @keyframes blink{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-2px)}}
+  }
+
+  .side{display:flex;flex-direction:column;gap:1rem}
+  .mini{
+    background:var(--card);
+    border:1px solid var(--hairline-soft);
+    border-radius:1.1rem;
+    padding:1.05rem 1.1rem;
+  }
+  .mini__head{display:flex;align-items:center;gap:.75rem;margin-bottom:.8rem}
+  .avatar{
+    width:2.5rem;height:2.5rem;border-radius:50%;flex:none;
     display:flex;align-items:center;justify-content:center;
-    color:var(--rose); margin-bottom:.3rem;
+    font-weight:700;font-size:.95rem;color:#fff;
+    background:linear-gradient(135deg,var(--sage),var(--steel));
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.35);
   }
-  .tile__icon svg{width:1.15rem;height:1.15rem}
-  .tile h3{font-size:1rem;font-weight:600;letter-spacing:-.015em}
-  .tile p{font-size:.9rem;line-height:1.55;color:var(--ink-mute)}
+  .mini__name{font-weight:700;font-size:.92rem;letter-spacing:-.01em}
+  .mini__sub{font-size:.74rem;color:var(--ink-faint)}
+  .chips{display:flex;flex-wrap:wrap;gap:.4rem}
+  .chip{
+    padding:.3rem .65rem;border-radius:999px;
+    background:var(--sage-soft);color:var(--sage);
+    font-size:.68rem;font-weight:700;
+  }
+  .chip--blue{background:var(--steel-soft);color:var(--steel)}
+  .verified{
+    display:flex;align-items:center;gap:.45rem;
+    margin-top:.8rem;
+    font-size:.74rem;color:var(--ink-soft);
+  }
+  .verified svg{width:.85rem;height:.85rem;color:var(--sage);flex:none}
+
+  .stat__row{display:flex;align-items:flex-end;gap:1rem}
+  .stat__num{
+    font-family:"Instrument Serif",Georgia,serif;
+    font-size:2.5rem;line-height:1;letter-spacing:-.02em;
+  }
+  .bars{
+    flex:1;display:flex;align-items:flex-end;gap:.3rem;height:2.6rem;
+  }
+  .bars i{
+    flex:1;border-radius:.25rem .25rem 0 0;
+    background:linear-gradient(180deg,var(--steel),var(--sage));
+    opacity:.75;
+  }
+  .stat__cap{margin-top:.6rem;font-size:.74rem;color:var(--ink-faint)}
+
+  .sat{
+    position:absolute;z-index:4;
+    display:flex;align-items:center;gap:.55rem;
+    padding:.7rem 1.05rem;
+    border-radius:999px;
+    background:var(--glass-strong);
+    border:1px solid var(--glass-brd);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    box-shadow:var(--shadow-sm);
+    font-size:.78rem;font-weight:600;color:var(--ink);
+    white-space:nowrap;
+  }
+  .sat svg{width:.9rem;height:.9rem;color:var(--sage);flex:none}
+  .sat--a{top:-1.2rem;left:-1rem}
+  .sat--b{bottom:5.4rem;right:-1.2rem}
+  @media (max-width:900px){.sat{display:none}}
+
+  @media (prefers-reduced-motion:no-preference){
+    .floaty{animation:floaty 7s ease-in-out infinite alternate}
+    .floaty--b{animation-duration:9s;animation-delay:-3s}
+    @keyframes floaty{from{transform:translateY(-5px)}to{transform:translateY(7px)}}
+  }
+
+  /* ---------- hero : hills ---------- */
+  .hills{
+    position:absolute;left:0;right:0;bottom:-1px;z-index:2;
+    width:100%;height:clamp(9rem,22vw,17rem);
+    pointer-events:none;
+  }
+  .hills svg{display:block;width:100%;height:100%}
+  .hills .back{fill:var(--hill-back);opacity:.55;filter:blur(5px)}
+  .hills .mid{fill:var(--hill-mid);opacity:.85;filter:blur(1.5px)}
+  .hills .front{fill:var(--hill-front)}
+
+  /* ---------- sections on paper ---------- */
+  .paper{position:relative;z-index:5;background:var(--paper)}
+  .ridge{
+    position:absolute;top:1px;left:0;width:100%;
+    height:clamp(3.5rem,9vw,7rem);
+    transform:translateY(-99%);
+    fill:var(--paper);
+    pointer-events:none;
+  }
+  .section{padding-block:clamp(4.5rem,9vw,7rem)}
+  .section--tight{padding-top:clamp(1.5rem,4vw,3rem)}
+  .sec-head{
+    display:flex;flex-direction:column;align-items:center;text-align:center;
+    gap:1.15rem;max-width:44rem;margin-inline:auto;
+    margin-bottom:clamp(2.75rem,6vw,4rem);
+  }
+  .sec-head .badge{background:var(--olive)}
+  .sec-title{
+    font-family:"Instrument Serif",Georgia,serif;
+    font-weight:400;
+    font-size:clamp(2.1rem,4.6vw,3.4rem);
+    line-height:1.08;letter-spacing:-.01em;
+  }
+  .sec-title em{font-style:italic}
+  .sec-deck{font-size:clamp(.98rem,1.4vw,1.08rem);line-height:1.6;color:var(--ink-soft);max-width:34rem}
+
+  /* ---------- features bento ---------- */
+  .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  .tile{
+    grid-column:span 4;
+    background:var(--card);
+    border:1px solid var(--hairline-soft);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    border-radius:1.5rem;
+    padding:1.7rem 1.6rem;
+    display:flex;flex-direction:column;gap:.75rem;
+    box-shadow:var(--shadow-sm);
+    transition:transform .25s ease,box-shadow .25s ease;
+  }
+  .tile:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+  .tile--wide{grid-column:span 7}
+  .tile--mid{grid-column:span 5}
+  .tile__icon{
+    width:2.6rem;height:2.6rem;border-radius:.9rem;
+    background:var(--sage-soft);color:var(--sage);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:.35rem;
+  }
+  .tile__icon--blue{background:var(--steel-soft);color:var(--steel)}
+  .tile__icon svg{width:1.2rem;height:1.2rem}
+  .tile h3{font-size:1.06rem;font-weight:700;letter-spacing:-.015em}
+  .tile p{font-size:.92rem;line-height:1.6;color:var(--ink-soft)}
+  .tile__chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:auto;padding-top:.5rem}
+  .tile__chips span{
+    padding:.42rem .8rem;border-radius:999px;
+    background:var(--paper-2);
+    border:1px solid var(--hairline-soft);
+    font-size:.74rem;font-weight:500;color:var(--ink-soft);
+  }
+  @media (max-width:900px){
+    .tile,.tile--wide,.tile--mid{grid-column:span 12}
+  }
+
+  /* ---------- meadow band ---------- */
+  .band{
+    position:relative;isolation:isolate;
+    margin-inline:clamp(.75rem,2.5vw,2rem);
+    border-radius:clamp(1.6rem,4vw,2.75rem);
+    overflow:hidden;
+    background:
+      radial-gradient(70% 55% at 18% 8%, rgba(178,195,201,.28), transparent 60%),
+      radial-gradient(60% 50% at 85% 90%, rgba(100,148,178,.22), transparent 60%),
+      linear-gradient(158deg, #3A4E1D 0%, #2A3C12 45%, #1C2B0C 100%);
+    min-height:30rem;
+    display:flex;align-items:center;
+    box-shadow:var(--shadow-lg);
+  }
+  @media (prefers-color-scheme:dark){
+    .band{background:
+      radial-gradient(70% 55% at 18% 8%, rgba(123,166,194,.14), transparent 60%),
+      radial-gradient(60% 50% at 85% 90%, rgba(123,156,131,.12), transparent 60%),
+      linear-gradient(158deg, #131C0B 0%, #0F1608 45%, #0A1105 100%);
+    }
+  }
+  #fireflies{position:absolute;inset:0;z-index:1;pointer-events:none}
+  .band__in{
+    position:relative;z-index:2;
+    width:100%;
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    gap:2rem;
+    padding:clamp(2.5rem,6vw,4.5rem);
+  }
+  .band__chat{
+    max-width:23rem;
+    border-radius:1.4rem;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.28);
+    backdrop-filter:blur(18px) saturate(1.3);
+    -webkit-backdrop-filter:blur(18px) saturate(1.3);
+    box-shadow:0 24px 50px -22px rgba(0,0,0,.5);
+    padding:1.3rem;
+    display:flex;flex-direction:column;gap:.8rem;
+  }
+  @media (prefers-color-scheme:dark){
+    .band__chat{background:rgba(10,17,5,.4);border-color:rgba(255,255,255,.12)}
+  }
+  .band__chat .msg--in{
+    background:rgba(255,255,255,.92);
+    border:none;color:#22331C;
+  }
+  .band__chat .msg__from{color:rgba(34,51,28,.5)}
+  .band__input{
+    display:flex;align-items:center;justify-content:space-between;gap:.6rem;
+    border-radius:999px;
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.22);
+    padding:.6rem .65rem .6rem 1.05rem;
+    color:rgba(255,255,255,.75);
+    font-size:.82rem;
+  }
+  .band__input i{
+    width:1.7rem;height:1.7rem;border-radius:50%;flex:none;
+    background:#F2F6EA;color:#314216;
+    display:flex;align-items:center;justify-content:center;
+    font-style:normal;
+  }
+  .band__input svg{width:.85rem;height:.85rem}
+  .band__stat{
+    margin-left:auto;
+    max-width:19rem;
+    border-radius:1.4rem;
+    background:rgba(20,28,10,.42);
+    border:1px solid rgba(255,255,255,.16);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    padding:1.5rem 1.6rem;
+    color:#F2F6EA;
+  }
+  .band__stat .live{
+    display:inline-flex;align-items:center;gap:.5rem;
+    font-family:"JBMono",ui-monospace,Menlo,monospace;
+    font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+    color:#B9E28A;margin-bottom:.7rem;
+  }
+  .band__stat .live i{width:.45rem;height:.45rem;border-radius:50%;background:#B9E28A}
+  @media (prefers-reduced-motion:no-preference){
+    .band__stat .live i{animation:pulse 2.2s ease-in-out infinite}
+  }
+  .band__stat .big{
+    font-family:"Instrument Serif",Georgia,serif;
+    font-size:2.6rem;line-height:1;letter-spacing:-.01em;
+  }
+  .band__stat p{margin-top:.6rem;font-size:.86rem;line-height:1.55;color:rgba(242,246,234,.7)}
+  .band__avatars{display:flex;margin-top:1rem}
+  .band__avatars span{
+    width:2rem;height:2rem;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:.68rem;font-weight:700;color:#fff;
+    box-shadow:0 0 0 2px rgba(20,28,10,.9);
+    margin-left:-.5rem;
+  }
+  .band__avatars span:first-child{margin-left:0}
+  @media (max-width:820px){
+    .band__in{flex-direction:column;align-items:stretch}
+    .band__stat{margin-left:0}
+  }
+
+  /* ---------- benefits ---------- */
+  .benefits{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  .bcard{
+    grid-column:span 4;
+    border-radius:1.5rem;
+    padding:1.8rem 1.7rem;
+    min-height:16rem;
+    display:flex;flex-direction:column;
+    background:linear-gradient(160deg,#3A4E1D,#26370F);
+    color:#F2F6EA;
+    box-shadow:var(--shadow-md);
+    transition:transform .25s ease,box-shadow .25s ease;
+  }
+  .bcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+  .bcard__icon{
+    width:2.6rem;height:2.6rem;border-radius:.9rem;
+    background:rgba(255,255,255,.14);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:auto;
+  }
+  .bcard__icon svg{width:1.2rem;height:1.2rem;color:#D9E8C8}
+  .bcard h3{
+    font-family:"Instrument Serif",Georgia,serif;font-weight:400;
+    font-size:1.7rem;line-height:1.15;letter-spacing:-.01em;
+    margin-top:1.6rem;
+  }
+  .bcard p{margin-top:.6rem;font-size:.9rem;line-height:1.6;color:rgba(242,246,234,.72)}
+  .quote{
+    grid-column:span 12;
+    border-radius:1.5rem;
+    background:var(--card);
+    border:1px solid var(--hairline-soft);
+    box-shadow:var(--shadow-sm);
+    padding:clamp(1.8rem,4vw,2.6rem);
+    display:flex;flex-wrap:wrap;align-items:center;gap:1.5rem 2.5rem;
+    justify-content:space-between;
+  }
+  .quote blockquote{
+    margin:0;max-width:34rem;
+    font-family:"Instrument Serif",Georgia,serif;font-style:italic;
+    font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.3;letter-spacing:-.01em;
+  }
+  .quote__who{display:flex;align-items:center;gap:.8rem}
+  .quote__who .avatar{width:2.8rem;height:2.8rem;background:linear-gradient(135deg,var(--steel),var(--sage))}
+  .quote__who .n{font-weight:700;font-size:.9rem}
+  @media (max-width:900px){.bcard{grid-column:span 12}}
+
+  /* ---------- faq ---------- */
+  .faq{max-width:44rem;margin-inline:auto}
+  .faq details{
+    border-bottom:1px solid var(--hairline-soft);
+  }
+  .faq summary{
+    list-style:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    padding:1.35rem .25rem;
+    font-family:"Instrument Serif",Georgia,serif;
+    font-size:clamp(1.15rem,2.2vw,1.45rem);
+    letter-spacing:-.01em;
+    transition:color .18s ease;
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary:hover{color:var(--olive)}
+  @media (prefers-color-scheme:dark){.faq summary:hover{color:var(--sage)}}
+  .faq summary .x{
+    width:1.7rem;height:1.7rem;border-radius:50%;flex:none;
+    border:1px solid var(--hairline);
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .25s ease,background .25s ease;
+  }
+  .faq summary .x svg{width:.8rem;height:.8rem}
+  .faq details[open] summary .x{transform:rotate(45deg);background:var(--sage-soft)}
+  .faq .a{
+    padding:0 .25rem 1.4rem;
+    font-size:.94rem;line-height:1.65;color:var(--ink-soft);
+    max-width:36rem;
+  }
+
+  /* ---------- final cta ---------- */
+  .cta{
+    position:relative;isolation:isolate;
+    margin-inline:clamp(.75rem,2.5vw,2rem);
+    margin-bottom:clamp(.75rem,2.5vw,2rem);
+    border-radius:clamp(1.6rem,4vw,2.75rem);
+    overflow:hidden;
+    background:
+      radial-gradient(80% 60% at 50% 0%, rgba(178,195,201,.2), transparent 60%),
+      linear-gradient(170deg, #2E3F14 0%, #22330F 50%, #17240A 100%);
+    box-shadow:var(--shadow-lg);
+    padding:clamp(4rem,9vw,6.5rem) clamp(1.5rem,5vw,3rem);
+    text-align:center;
+  }
+  @media (prefers-color-scheme:dark){
+    .cta{background:
+      radial-gradient(80% 60% at 50% 0%, rgba(123,166,194,.12), transparent 60%),
+      linear-gradient(170deg, #141D0A 0%, #101707 50%, #0B1104 100%);
+    }
+  }
+  .cta__title{
+    font-family:"Instrument Serif",Georgia,serif;font-weight:400;
+    font-size:clamp(2.6rem,6vw,4.4rem);
+    line-height:1.05;letter-spacing:-.015em;
+    color:#F2F6EA;
+  }
+  .cta__title em{font-style:italic}
+  .cta__deck{
+    margin:1.1rem auto 0;
+    max-width:30rem;
+    font-size:clamp(.98rem,1.5vw,1.1rem);line-height:1.6;
+    color:rgba(242,246,234,.72);
+  }
+  .cta .capture{margin-top:2.3rem}
+  .cta .field{
+    background:rgba(255,255,255,.1);
+    border-color:rgba(255,255,255,.25);
+  }
+  .cta .field input{color:#F2F6EA}
+  .cta .field input::placeholder{color:rgba(242,246,234,.45)}
+  .cta .field button{background:#F2F6EA;color:#314216}
+  .cta .field button:hover{background:#fff}
+  .cta .capture__note{color:rgba(242,246,234,.55)}
+  .cta .capture__note[data-state="ok"]{color:#B9E28A}
 
   /* ---------- footer ---------- */
-  .foot{border-top:1px solid var(--hairline-soft)}
+  .foot{background:var(--paper)}
   .foot__row{
-    display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;
+    display:flex;flex-wrap:wrap;gap:.8rem 1.5rem;
     justify-content:space-between;align-items:center;
-    padding-block:1.6rem 2.4rem;
+    padding-block:1.8rem 2.6rem;
   }
 
-  .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-
-  /* ---------- entrance ---------- */
-  @media (prefers-reduced-motion:no-preference){
-    .rise{opacity:0;transform:translateY(14px);animation:rise .85s cubic-bezier(.2,.7,.25,1) forwards}
-    .rise:nth-child(1){animation-delay:.05s}
-    .rise:nth-child(2){animation-delay:.16s}
-    .rise:nth-child(3){animation-delay:.27s}
-    .rise:nth-child(4){animation-delay:.38s}
+  /* ---------- reveal ---------- */
+  .js .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.25,1)}
+  .js .reveal.in{opacity:1;transform:none}
+  .js .reveal.d1{transition-delay:.12s}
+  .js .reveal.d2{transition-delay:.24s}
+  .js .reveal.d3{transition-delay:.36s}
+  @media (prefers-reduced-motion:reduce){
+    .js .reveal{opacity:1;transform:none;transition:none}
   }
-  @keyframes rise{to{opacity:1;transform:none}}
 
-  @media (max-width:860px){
-    .steps{grid-template-columns:1fr}
-    .facts{grid-template-columns:1fr;gap:1.2rem}
+  @media (max-width:900px){
+    .dash__body{grid-template-columns:1fr}
   }
   @media (max-width:560px){
-    .field{flex-direction:column;border-radius:1.2rem;padding:.45rem}
-    .field input{padding-inline:.7rem}
-    .field button{padding-block:.8rem}
+    .field{flex-direction:column;border-radius:1.4rem;padding:.45rem}
+    .field input{padding-inline:.75rem}
+    .field button{padding-block:.85rem}
+    .nav__pill{padding-left:1rem}
   }
 </style>
+</head>
+<body>
 
-<header class="masthead">
-  <div class="shell masthead__row">
-    <span class="wordmark">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
-        <path d="M4 15V7"/><path d="M12 19V5"/><path d="M20 15V7"/>
-      </svg>
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Main">
+  <div class="nav__pill">
+    <a class="wordmark" href="#top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
       senior.chat
+    </a>
+    <div class="nav__links">
+      <a href="#how">How it works</a>
+      <a href="#why">Why seniors</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="btn btn--primary" href="#join">
+      Join waitlist
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+    </a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="clouds" aria-hidden="true"></canvas>
+
+  <div class="shell hero__inner">
+    <span class="badge reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+      <i class="dot" aria-hidden="true"></i>
+      Waitlist now open
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform:scaleX(-1)"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
     </span>
-    <span class="label">Waitlist&nbsp;— 2026</span>
+
+    <h1 class="headline reveal d1">Advice from students <em>who actually live there.</em></h1>
+
+    <p class="deck reveal d2">Chat one-to-one with verified students at the universities you're considering — <strong>the version a counsellor can't sell you</strong>. Rent, weather, food, the job market, whether the course is worth it.</p>
+
+    <form class="capture reveal d3" id="join">
+      <div class="field">
+        <label class="vh" for="email">Email address</label>
+        <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required />
+        <button type="submit">Request access</button>
+      </div>
+      <p class="capture__note" id="note" role="status" aria-live="polite">First 500 get priority matching · No spam, ever</p>
+      <a class="capture__alt" href="#how">
+        or see how it works
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+      </a>
+    </form>
+  </div>
+
+  <div class="shell stage">
+    <span class="sat floaty reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7 9.5 17.5 4 12"/></svg>
+      Verified by university email
+    </span>
+    <span class="sat sat--b floaty--b reveal d2">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M9 11h2"/></svg>
+      Notes after every chat
+    </span>
+
+    <div class="dash reveal d1" role="img" aria-label="Illustration of how a senior.chat conversation works: a student asks Ananya, a verified second-year at UBC Vancouver, about rent and winter. Example only, not a real conversation.">
+      <div class="dash__bar">
+        <span class="dash__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="dash__title">senior.chat · example conversation</span>
+        <span class="dash__chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7 9.5 17.5 4 12"/></svg>
+          verified match
+        </span>
+      </div>
+      <div class="dash__body">
+        <div class="chat">
+          <p class="msg msg--in">
+            <span class="msg__from">Ananya · UBC, Vancouver</span>
+            Hi Aarav! Second-year CS here, moved from Pune two years ago. Ask me anything — the stuff you can't Google.
+          </p>
+          <p class="msg msg--out">Be honest — is the rent really that bad?</p>
+          <p class="msg msg--in">
+            <span class="msg__from">Ananya · UBC, Vancouver</span>
+            Yes. I pay CAD $1,180 for a shared basement in Kitsilano. The brochure won't tell you that.
+          </p>
+          <p class="msg msg--out">And the winter?</p>
+          <span class="typing" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <div class="side">
+          <div class="mini">
+            <div class="mini__head">
+              <span class="avatar" aria-hidden="true">A</span>
+              <div>
+                <p class="mini__name">Ananya R.</p>
+                <p class="mini__sub">Your matched senior</p>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="chip">BSc CS · Year 2</span>
+              <span class="chip chip--blue">UBC · Vancouver</span>
+              <span class="chip">From Pune</span>
+            </div>
+            <p class="verified">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg>
+              University email · Enrolment · Video check
+            </p>
+          </div>
+          <div class="mini stat">
+            <div class="stat__row">
+              <span class="stat__num serif">&#8377;0</span>
+            </div>
+            <p class="stat__cap">commission a senior earns for steering you anywhere. You pay them for their time — nobody else does.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hills" aria-hidden="true">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path class="back"  d="M0,168 C160,120 320,108 520,140 C720,172 840,96 1060,116 C1240,132 1360,168 1440,152 L1440,320 L0,320 Z"/>
+      <path class="mid"   d="M0,220 C180,176 380,168 580,196 C780,224 940,164 1140,184 C1300,200 1400,228 1440,216 L1440,320 L0,320 Z"/>
+      <path class="front" d="M0,272 C200,236 420,232 640,256 C860,280 1080,240 1260,256 C1350,264 1410,276 1440,272 L1440,320 L0,320 Z"/>
+    </svg>
   </div>
 </header>
 
-<section class="hero">
-  <canvas id="bloom" aria-hidden="true"></canvas>
-  <div class="shell">
-    <div class="hero__inner">
-      <span class="eyebrow rise"><i></i>No counsellors · No commission</span>
-      <h1 class="headline rise">Advice from students <em>who actually live there.</em></h1>
-      <p class="deck rise">Chat one-to-one with verified students at the universities you're considering. <strong>The version a counsellor can't sell you</strong> — rent, weather, racism, food, job market, whether the course is worth it.</p>
-      <form class="capture rise" id="form" novalidate>
-        <div class="field">
-          <label class="vh" for="email">Email address</label>
-          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required />
-          <button type="submit">Request access</button>
+<main class="paper">
+  <svg class="ridge" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,80 L0,52 C240,14 480,60 720,44 C960,28 1200,64 1440,26 L1440,80 Z"/>
+  </svg>
+
+  <section class="section" id="how">
+    <div class="shell">
+      <div class="sec-head">
+        <span class="badge reveal">
+          <i class="dot" aria-hidden="true"></i>
+          Everything, minus the commission
+        </span>
+        <h2 class="sec-title reveal d1">Everything you need to choose <em>where to spend the next four years</em></h2>
+        <p class="sec-deck reveal d2">One honest conversation beats fifty brochures. Here's what's in the room — and what isn't.</p>
+      </div>
+
+      <div class="bento">
+        <article class="tile reveal">
+          <span class="tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h3>Verified seniors only</h3>
+          <p>Every senior is verified by university email, enrolment proof and a video check. No impostors, no alumni guessing from memory.</p>
+        </article>
+        <article class="tile reveal d1">
+          <span class="tile__icon tile__icon--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m5.5 5.5 13 13"/></svg></span>
+          <h3>No commission in the room</h3>
+          <p>Seniors don't earn a rupee from where you enrol — they already picked their university. The only agenda in the chat is yours.</p>
+        </article>
+        <article class="tile reveal d2">
+          <span class="tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></span>
+          <h3>Matched to your path</h3>
+          <p>Country, course, city, budget — even a half-formed plan. Especially a half-formed one. We find someone almost exactly on it.</p>
+        </article>
+        <article class="tile tile--wide reveal">
+          <span class="tile__icon tile__icon--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg></span>
+          <h3>Ask the unaskable</h3>
+          <p>Rent, racism, weather, food, dating, the job market. If a brochure can't print it, you can still ask it — and get a straight answer from someone living it right now.</p>
+          <div class="tile__chips">
+            <span>"How bad is the rain, really?"</span>
+            <span>"Is the course worth the fees?"</span>
+            <span>"Can I work weekends?"</span>
+            <span>"Will I find vegetarian food?"</span>
+          </div>
+        </article>
+        <article class="tile tile--mid reveal d1">
+          <span class="tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M9 11h2"/></svg></span>
+          <h3>Notes after every chat</h3>
+          <p>Every conversation ends with written notes, so the advice survives the family group chat — and the decision.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-label="An example of a chat with a senior">
+    <canvas id="fireflies" aria-hidden="true"></canvas>
+    <div class="band__in">
+      <div class="band__chat reveal">
+        <p class="msg msg--in">
+          <span class="msg__from">Meher · U of T, Toronto · example</span>
+          Hi! I'm around all evening — ask me anything about living in Toronto.
+        </p>
+        <p class="msg msg--out">How cold does it actually get?</p>
+        <div class="band__input" aria-hidden="true">
+          Ask about rent, food, weather…
+          <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></i>
         </div>
-        <p class="capture__note" id="note" role="status" aria-live="polite">First 500 get priority matching. No spam.</p>
-      </form>
+      </div>
+      <div class="band__stat reveal d1">
+        <span class="live"><i></i>waitlist open</span>
+        <p class="big">4 cities first</p>
+        <p>Toronto, Vancouver, London and Manchester are where we're verifying our first seniors. Tell us where you're headed and we'll match you at launch.</p>
+        <div class="band__avatars" aria-hidden="true">
+          <span style="background:linear-gradient(135deg,#65876D,#6494B2)">M</span>
+          <span style="background:linear-gradient(135deg,#6494B2,#314216)">R</span>
+          <span style="background:linear-gradient(135deg,#314216,#65876D)">S</span>
+          <span style="background:linear-gradient(135deg,#7B9C83,#B2C3C9)">K</span>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="shell">
-  <div class="rule"></div>
-  <div class="facts">
-    <div class="fact"><span class="label">Launching</span><span class="fact__value">Early 2026</span></div>
-    <div class="fact"><span class="label">First destinations</span><span class="fact__value">UK · Canada</span></div>
-    <div class="fact"><span class="label">Verified mentors</span><span class="fact__value mono">200+ at launch</span></div>
-  </div>
-  <div class="rule"></div>
-</div>
+  <section class="section" id="why">
+    <div class="shell">
+      <div class="sec-head">
+        <span class="badge reveal">
+          <i class="dot" aria-hidden="true"></i>
+          Honesty, on tap
+        </span>
+        <h2 class="sec-title reveal d1">Why students trust a stranger <em>over a brochure</em></h2>
+      </div>
 
-<section class="steps-sec">
-  <div class="shell">
-    <div class="steps-sec__head">
-      <span class="label">How it works</span>
-      <h2 class="steps-sec__title">Three steps between you and someone who is already there.</h2>
+      <div class="benefits">
+        <article class="bcard reveal">
+          <span class="bcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <h3>The things brochures skip</h3>
+          <p>Rent, racism, weather, food, safety — answered by someone with nothing to sell you.</p>
+        </article>
+        <article class="bcard reveal d1">
+          <span class="bcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></span>
+          <h3>Almost exactly your path</h3>
+          <p>Matched on course, city and budget — not on a counsellor's sales target.</p>
+        </article>
+        <article class="bcard reveal d2">
+          <span class="bcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+          <h3>Current students only</h3>
+          <p>If they graduated more than a year ago, they're off the platform. Memory fades; rent changes.</p>
+        </article>
+        <div class="quote reveal">
+          <blockquote>"Every year lakhs of us pick a country off a brochure and a counsellor's commission. You should be able to hear it from someone who's already there."</blockquote>
+          <div class="quote__who">
+            <span class="avatar" aria-hidden="true">S</span>
+            <div>
+              <p class="n">The senior.chat team</p>
+              <p class="label">Why we're building this</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="steps">
-      <article class="tile">
-        <span class="tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg></span>
-        <h3>Tell us the plan</h3>
-        <p>Country, course, city — even a half-formed one. Especially a half-formed one.</p>
-      </article>
-      <article class="tile">
-        <span class="tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7 9.5 17.5 4 12"/></svg></span>
-        <h3>We match a senior</h3>
-        <p>Verified by university email, enrolment proof and video. Someone on almost exactly your path.</p>
-      </article>
-      <article class="tile">
-        <span class="tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg></span>
-        <h3>Get the real story</h3>
-        <p>One-to-one, unfiltered, no commission in the room. Notes afterwards, so you keep it.</p>
-      </article>
-    </div>
-  </div>
-</section>
+  </section>
 
-<footer class="foot">
-  <div class="shell foot__row">
-    <span class="label">senior.chat</span>
-    <span class="label">Built by students, for students</span>
-  </div>
-</footer>
+  <section class="section section--tight" id="faq">
+    <div class="shell">
+      <div class="sec-head">
+        <h2 class="sec-title reveal">Fair <em>questions</em></h2>
+      </div>
+      <div class="faq reveal d1">
+        <details>
+          <summary>Is it free?<span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <p class="a">Free during early access. The first 500 on the waitlist get priority matching and locked-in free chats at launch.</p>
+        </details>
+        <details>
+          <summary>How are seniors verified?<span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <p class="a">Three steps: an active university email, proof of current enrolment, and a short video check with our team. If any of the three lapse, the profile comes down.</p>
+        </details>
+        <details>
+          <summary>Which destinations can I ask about?<span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <p class="a">The UK and Canada at launch — Toronto, Vancouver, London, Manchester and more. The US and Australia open next, in waitlist order.</p>
+        </details>
+        <details>
+          <summary>What can I actually ask?<span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <p class="a">Anything a counsellor can't or won't answer — real rent, real weather, making friends, safety, part-time work, whether the course is worth the fees. Nothing is off-limits except the seniors' own privacy.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="join-cta" aria-label="Join the waitlist">
+    <h2 class="cta__title reveal">Be first <em>in line.</em></h2>
+    <p class="cta__deck reveal d1">We're letting students in from the waitlist, in order. The earlier you join, the earlier you talk to someone who is already there.</p>
+    <form class="capture reveal d2" id="form2">
+      <div class="field">
+        <label class="vh" for="email2">Email address</label>
+        <input id="email2" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required />
+        <button type="submit">Join the waitlist</button>
+      </div>
+      <p class="capture__note" id="note2" role="status" aria-live="polite">First 500 get priority matching · No spam, ever</p>
+    </form>
+  </section>
+
+  <footer class="foot">
+    <div class="shell foot__row">
+      <span class="wordmark" style="font-size:1.1rem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+        senior.chat
+      </span>
+      <span class="label">Built by students, for students</span>
+      <span class="label">© 2026</span>
+    </div>
+  </footer>
+</main>
 
 <script>
 (function(){
   "use strict";
+  document.documentElement.classList.add("js");
 
-  /* ---------------- waitlist capture ---------------- */
-  var form = document.getElementById("form");
-  var note = document.getElementById("note");
-  var email = document.getElementById("email");
-
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-    var v = email.value.trim();
-    if(!v || v.indexOf("@") < 1 || v.lastIndexOf(".") < v.indexOf("@")){
-      note.textContent = "That email looks incomplete — check it and try again.";
-      note.removeAttribute("data-state");
-      email.focus();
-      return;
-    }
-    note.textContent = "You're on the list. We'll write to " + v + " first.";
-    note.setAttribute("data-state","ok");
-    form.reset();
-  });
-
-  /* ---------------- generative bloom ---------------- */
-  var canvas = document.getElementById("bloom");
-  var ctx = canvas.getContext("2d");
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  var PALETTE = [
-    [255, 74, 140],
-    [255, 122, 165],
-    [255, 176, 201],
-    [255, 118, 92],
-    [255, 208, 220]
-  ];
-
-  var sprites = [];
-  function buildSprites(){
-    sprites = PALETTE.map(function(rgb){
-      var s = document.createElement("canvas");
-      var size = 64;
-      s.width = s.height = size;
-      var c = s.getContext("2d");
-      var g = c.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
-      g.addColorStop(0,   "rgba(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ",0.95)");
-      g.addColorStop(0.45,"rgba(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ",0.42)");
-      g.addColorStop(1,   "rgba(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ",0)");
-      c.fillStyle = g;
-      c.fillRect(0,0,size,size);
-      return s;
+  /* ---------------- waitlist capture ---------------- */
+  function wireForm(formId, noteId, inputId){
+    var form = document.getElementById(formId);
+    var note = document.getElementById(noteId);
+    var email = document.getElementById(inputId);
+    if(!form) return;
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      if(!form.checkValidity()){
+        note.textContent = "That email looks incomplete — check it and try again.";
+        note.removeAttribute("data-state");
+        form.reportValidity();
+        return;
+      }
+      note.textContent = "You're on the list. We'll write to " + email.value.trim() + " first.";
+      note.setAttribute("data-state","ok");
+      form.reset();
     });
   }
+  wireForm("join", "note", "email");
+  wireForm("form2", "note2", "email2");
 
-  var particles = [];
-  var W = 0, H = 0, dpr = 1;
-
-  function gauss(){
-    var u = 0, v = 0;
-    while(u === 0) u = Math.random();
-    while(v === 0) v = Math.random();
-    return Math.sqrt(-2*Math.log(u)) * Math.cos(2*Math.PI*v);
+  /* ---------------- reveal on scroll ---------------- */
+  var revealEls = document.querySelectorAll(".reveal");
+  if("IntersectionObserver" in window && !reduced.matches){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          en.target.classList.add("in");
+          io.unobserve(en.target);
+        }
+      });
+    }, {threshold:.12, rootMargin:"0px 0px -6% 0px"});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add("in"); });
   }
 
-  function seed(){
-    particles = [];
-    var count = W < 620 ? 620 : (W < 1100 ? 1000 : 1500);
-    var lobes = [];
-    var lobeCount = 9;
-    for(var l = 0; l < lobeCount; l++){
-      var t = l / (lobeCount - 1);
-      // shallow ridge: high in the middle, tapering to the edges
-      var arc = Math.sin(Math.PI * t);
-      lobes.push({
-        x: (0.06 + t * 0.88) * W + (Math.random() - 0.5) * W * 0.05,
-        y: H - arc * H * (0.44 + Math.random() * 0.2) - H * 0.05,
-        r: (0.09 + arc * 0.1 + Math.random() * 0.04) * W,
-        w: 0.55 + arc * 0.9
+  /* ---------------- drifting clouds ---------------- */
+  (function(){
+    var canvas = document.getElementById("clouds");
+    if(!canvas) return;
+    var ctx = canvas.getContext("2d");
+    var dark = window.matchMedia("(prefers-color-scheme: dark)");
+    var W = 0, H = 0, dpr = 1, clouds = [];
+
+    function makeSprites(){
+      var cols = dark.matches
+        ? [[176,196,214],[150,172,192],[196,212,226]]
+        : [[255,255,255],[255,255,255],[248,251,252]];
+      return cols.map(function(c, k){
+        var s = document.createElement("canvas");
+        s.width = 220; s.height = 120;
+        var g = s.getContext("2d");
+        for(var i = 0; i < 7; i++){
+          var cx = 30 + Math.random() * 160;
+          var cy = 52 + Math.random() * 46;
+          var r  = 24 + Math.random() * 30;
+          var a  = (k === 2 ? .35 : .55) + Math.random() * .3;
+          var grad = g.createRadialGradient(cx, cy, 0, cx, cy, r);
+          grad.addColorStop(0, "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + a + ")");
+          grad.addColorStop(1, "rgba(" + c[0] + "," + c[1] + "," + c[2] + ",0)");
+          g.fillStyle = grad;
+          g.fillRect(0, 0, 220, 120);
+        }
+        return s;
       });
     }
-    var total = lobes.reduce(function(a,b){ return a + b.w; }, 0);
+    var sprites = makeSprites();
 
-    lobes.forEach(function(lobe){
-      var n = Math.round(count * (lobe.w / total));
+    function seed(){
+      clouds = [];
+      var n = W < 640 ? 9 : 14;
       for(var i = 0; i < n; i++){
-        var ang = Math.random() * Math.PI * 2;
-        var rad = Math.abs(gauss()) * 0.42;
-        if(rad > 1.25) rad = 1.25;
-        var px = lobe.x + Math.cos(ang) * rad * lobe.r * 1.25;
-        var py = lobe.y + Math.sin(ang) * rad * lobe.r * 0.82 + rad * lobe.r * 0.28;
-        // deeper rose near the core, softer pink at the fringe
-        var idx;
-        if(rad < 0.34)      idx = Math.random() < 0.72 ? 0 : 3;
-        else if(rad < 0.68) idx = Math.random() < 0.7 ? 1 : 0;
-        else                idx = Math.random() < 0.62 ? 2 : 4;
-        particles.push({
-          x: px, y: py,
-          s: (1.6 + Math.pow(Math.random(), 2.1) * 9) * (1 - rad * 0.32),
-          a: 0.2 + Math.random() * 0.5,
-          sprite: idx,
+        var w = (140 + Math.random() * 320);
+        clouds.push({
+          x: Math.random() * (W + 400) - 200,
+          y: Math.random() * H * .52 + H * .02,
+          w: w,
+          h: w * (.42 + Math.random() * .18),
+          sp: 4 + Math.random() * 9,
+          a: .22 + Math.random() * .34,
           ph: Math.random() * Math.PI * 2,
-          sp: 0.15 + Math.random() * 0.5,
-          amp: 1.2 + Math.random() * 3.4
+          amp: 3 + Math.random() * 7,
+          sprite: Math.floor(Math.random() * sprites.length)
         });
       }
-    });
-    particles.sort(function(p,q){ return q.s - p.s; });
-  }
+    }
 
-  function resize(){
-    var rect = canvas.getBoundingClientRect();
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    W = Math.max(rect.width, 1);
-    H = Math.max(rect.height, 1);
-    canvas.width  = Math.round(W * dpr);
-    canvas.height = Math.round(H * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    seed();
-  }
+    function resize(){
+      var r = canvas.getBoundingClientRect();
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = Math.max(r.width, 1);
+      H = Math.max(r.height, 1);
+      canvas.width = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      seed();
+    }
 
-  function draw(time){
-    ctx.clearRect(0, 0, W, H);
-
-    // ambient haze behind the bloom
-    var glow = ctx.createRadialGradient(W*0.5, H*0.88, 0, W*0.5, H*0.88, W*0.55);
-    glow.addColorStop(0,   "rgba(255,120,160,0.20)");
-    glow.addColorStop(0.55,"rgba(255,150,180,0.08)");
-    glow.addColorStop(1,   "rgba(255,150,180,0)");
-    ctx.fillStyle = glow;
-    ctx.fillRect(0, 0, W, H);
-
-    var t = time * 0.001;
-    for(var i = 0; i < particles.length; i++){
-      var p = particles[i];
-      var dx = 0, dy = 0;
-      if(!reduced.matches){
-        dx = Math.cos(t * p.sp + p.ph) * p.amp;
-        dy = Math.sin(t * p.sp * 0.78 + p.ph) * p.amp * 0.6;
+    var last = 0;
+    function draw(t){
+      ctx.clearRect(0, 0, W, H);
+      var dt = Math.min((t - last) / 1000, .1) || 0;
+      last = t;
+      var tt = t * .001;
+      for(var i = 0; i < clouds.length; i++){
+        var c = clouds[i];
+        if(!reduced.matches){
+          c.x += c.sp * dt;
+          if(c.x - c.w > W + 60){ c.x = -c.w - 60; }
+        }
+        var dy = reduced.matches ? 0 : Math.sin(tt * .3 + c.ph) * c.amp;
+        ctx.globalAlpha = c.a;
+        ctx.drawImage(sprites[c.sprite], c.x, c.y + dy, c.w, c.h);
       }
-      var d = p.s * 2.6;
-      ctx.globalAlpha = p.a;
-      ctx.drawImage(sprites[p.sprite], p.x + dx - d/2, p.y + dy - d/2, d, d);
+      ctx.globalAlpha = 1;
     }
-    ctx.globalAlpha = 1;
-  }
 
-  var raf = null;
-  function loop(time){
-    draw(time);
-    raf = requestAnimationFrame(loop);
-  }
+    var raf = null;
+    function loop(t){ draw(t); raf = requestAnimationFrame(loop); }
 
-  buildSprites();
-  resize();
+    resize();
+    if(reduced.matches){ draw(0); } else { raf = requestAnimationFrame(loop); }
 
-  if(reduced.matches){
-    draw(0);
-  } else {
-    raf = requestAnimationFrame(loop);
-  }
-
-  var rt = null;
-  window.addEventListener("resize", function(){
-    clearTimeout(rt);
-    rt = setTimeout(function(){
-      resize();
+    var rt = null;
+    window.addEventListener("resize", function(){
+      clearTimeout(rt);
+      rt = setTimeout(function(){ resize(); if(reduced.matches) draw(0); }, 160);
+    });
+    reduced.addEventListener("change", function(){
+      if(reduced.matches){ if(raf) cancelAnimationFrame(raf); raf = null; draw(0); }
+      else if(!raf){ raf = requestAnimationFrame(loop); }
+    });
+    dark.addEventListener("change", function(){
+      sprites = makeSprites();
       if(reduced.matches) draw(0);
-    }, 160);
-  });
+    });
+  })();
 
-  reduced.addEventListener("change", function(){
-    if(reduced.matches){
-      if(raf) cancelAnimationFrame(raf);
-      raf = null;
-      draw(0);
-    } else if(!raf){
-      raf = requestAnimationFrame(loop);
+  /* ---------------- fireflies in the meadow band ---------------- */
+  (function(){
+    var canvas = document.getElementById("fireflies");
+    if(!canvas) return;
+    var ctx = canvas.getContext("2d");
+    var W = 0, H = 0, dpr = 1, flies = [];
+
+    function seed(){
+      flies = [];
+      var n = W < 640 ? 18 : 34;
+      for(var i = 0; i < n; i++){
+        flies.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          r: .9 + Math.random() * 1.7,
+          ph: Math.random() * Math.PI * 2,
+          sp: .4 + Math.random() * .9,
+          ax: 8 + Math.random() * 26,
+          ay: 6 + Math.random() * 18,
+          warm: Math.random() < .4
+        });
+      }
     }
-  });
+    function resize(){
+      var r = canvas.getBoundingClientRect();
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = Math.max(r.width, 1);
+      H = Math.max(r.height, 1);
+      canvas.width = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      seed();
+    }
+    function draw(t){
+      ctx.clearRect(0, 0, W, H);
+      var tt = t * .001;
+      for(var i = 0; i < flies.length; i++){
+        var f = flies[i];
+        var dx = reduced.matches ? 0 : Math.cos(tt * f.sp * .4 + f.ph) * f.ax;
+        var dy = reduced.matches ? 0 : Math.sin(tt * f.sp * .3 + f.ph * 1.3) * f.ay;
+        var tw = reduced.matches ? .4 : .22 + .34 * (Math.sin(tt * f.sp * 2 + f.ph) * .5 + .5);
+        ctx.beginPath();
+        ctx.fillStyle = f.warm
+          ? "rgba(233,244,190," + tw + ")"
+          : "rgba(214,232,205," + tw + ")";
+        ctx.arc(f.x + dx, f.y + dy, f.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    var raf = null;
+    function loop(t){ draw(t); raf = requestAnimationFrame(loop); }
+
+    resize();
+    if(reduced.matches){ draw(0); } else { raf = requestAnimationFrame(loop); }
+
+    var rt = null;
+    window.addEventListener("resize", function(){
+      clearTimeout(rt);
+      rt = setTimeout(function(){ resize(); if(reduced.matches) draw(0); }, 160);
+    });
+    reduced.addEventListener("change", function(){
+      if(reduced.matches){ if(raf) cancelAnimationFrame(raf); raf = null; draw(0); }
+      else if(!raf){ raf = requestAnimationFrame(loop); }
+    });
+  })();
 })();
 </script>
+</body>
+</html>

@@ -9,9 +9,10 @@ Live: https://senior-chat-waitlist.vercel.app
 
 - `index.html` — the built, deployable page (fonts embedded as base64 data URIs,
   no build step needed to serve it as-is).
-- `src/template.html` — the source template, with `{{MANROPE}}` / `{{JBM}}`
-  placeholders instead of inlined font data.
-- `fonts/` — the two embedded font files (Manrope variable, JetBrains Mono).
+- `src/template.html` — the source template, with `{{MANROPE}}` / `{{JBM}}` /
+  `{{SERIF}}` / `{{SERIF_IT}}` placeholders instead of inlined font data.
+- `fonts/` — the embedded font files (Manrope variable, JetBrains Mono,
+  Instrument Serif regular + italic).
 - `src/build.py` — regenerates `index.html` from `src/template.html` + `fonts/`.
 
 ## Editing
