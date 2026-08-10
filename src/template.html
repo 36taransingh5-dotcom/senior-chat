@@ -84,6 +84,7 @@
     padding-inline:clamp(1.2rem,4vw,2.5rem);
   }
   .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
   .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400}
   .mono{
     font-family:"JBMono",ui-monospace,Menlo,monospace;
@@ -219,6 +220,7 @@
   }
   .field button:hover{transform:scale(1.02)}
   .field button:active{transform:scale(.98)}
+  .field button:disabled{opacity:.6;cursor:progress;transform:none}
   .capture__note{
     min-height:1.1rem;
     font-family:"JBMono",ui-monospace,Menlo,monospace;
@@ -644,12 +646,14 @@
         <span class="badge reveal"><i class="dot" aria-hidden="true"></i> Waitlist now open · Class of 2030</span>
         <h1 class="headline reveal d1">Advice from students <em>who actually live there.</em></h1>
         <p class="deck reveal d2">Chat one-to-one with verified students at the universities you're considering — <strong>the version a counsellor can't sell you</strong>. Rent, weather, food, the job market, whether the course is worth it.</p>
-        <form class="capture reveal d3" id="join" novalidate>
+        <form class="capture reveal d3" id="join" data-endpoint="https://formspree.io/f/xgawabko">
           <div class="field">
             <label class="vh" for="email">Email address</label>
             <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required />
             <button type="submit">Request access</button>
           </div>
+          <label class="vh" for="hp-join">Leave this field blank</label>
+          <input class="hp" id="hp-join" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
           <p class="capture__note" id="note" role="status" aria-live="polite">First 500 get priority matching · No spam, ever</p>
         </form>
       </div>
@@ -892,12 +896,14 @@
     <div class="cta__inner">
       <h2 class="cta__title reveal">Your story starts <em>here.</em></h2>
       <p class="cta__deck reveal d1">We're letting students in from the waitlist, in order. The earlier you join, the earlier you talk to someone who is already there.</p>
-      <form class="capture reveal d2" id="form2" novalidate>
+      <form class="capture reveal d2" id="form2" data-endpoint="https://formspree.io/f/xgawabko">
         <div class="field">
           <label class="vh" for="email2">Email address</label>
           <input id="email2" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required />
           <button type="submit">Join the waitlist</button>
         </div>
+        <label class="vh" for="hp-form2">Leave this field blank</label>
+        <input class="hp" id="hp-form2" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
         <p class="capture__note" id="note2" role="status" aria-live="polite">First 500 get priority matching · No spam, ever</p>
       </form>
     </div>
@@ -929,18 +935,50 @@
     var note = document.getElementById(noteId);
     var email = document.getElementById(inputId);
     if(!form) return;
+    var endpoint = form.getAttribute("data-endpoint");
+    var btn = form.querySelector("button[type=submit]");
+    var btnLabel = btn.textContent;
+    var busy = false;
+
     form.addEventListener("submit", function(e){
       e.preventDefault();
-      var v = email.value.trim();
-      if(!v || v.indexOf("@") < 1 || v.lastIndexOf(".") < v.indexOf("@")){
-        note.textContent = "That email looks incomplete — check it and try again.";
-        note.removeAttribute("data-state");
-        email.focus();
+      if(busy) return;
+
+      if(!form.checkValidity()){
+        form.reportValidity();
         return;
       }
-      note.textContent = "You're on the list. We'll write to " + v + " first.";
-      note.setAttribute("data-state","ok");
-      form.reset();
+
+      var v = email.value.trim();
+      busy = true;
+      btn.disabled = true;
+      btn.textContent = "Sending…";
+      note.removeAttribute("data-state");
+      note.textContent = "Sending…";
+
+      fetch(endpoint, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+      }).then(function(res){
+        if(res.ok){
+          note.textContent = "You're on the list. We'll write to " + v + " first.";
+          note.setAttribute("data-state","ok");
+          form.reset();
+          return;
+        }
+        return res.json().catch(function(){ return null; }).then(function(data){
+          var msg = data && data.errors && data.errors[0] && data.errors[0].message;
+          throw new Error(msg || "Something went wrong on our end — try again in a moment.");
+        });
+      }).catch(function(err){
+        note.removeAttribute("data-state");
+        note.textContent = err.message || "Couldn't reach the server — check your connection and try again.";
+      }).finally(function(){
+        busy = false;
+        btn.disabled = false;
+        btn.textContent = btnLabel;
+      });
     });
   }
   wireForm("join", "note", "email");
