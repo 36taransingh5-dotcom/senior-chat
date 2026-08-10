@@ -18,12 +18,14 @@ def main():
     jbm = b64(ROOT / "fonts" / "JetBrainsMono-Regular.woff2")
     serif = b64(ROOT / "fonts" / "InstrumentSerif-Regular.woff2")
     serif_it = b64(ROOT / "fonts" / "InstrumentSerif-Italic.woff2")
+    grotesk = b64(ROOT / "fonts" / "SpaceGrotesk-Variable.woff2")
 
     html = (
         template.replace("{{MANROPE}}", manrope)
         .replace("{{JBM}}", jbm)
         .replace("{{SERIF}}", serif)
         .replace("{{SERIF_IT}}", serif_it)
+        .replace("{{GROTESK}}", grotesk)
     )
     out = ROOT / "index.html"
     out.write_text(html)
